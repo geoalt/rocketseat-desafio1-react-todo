@@ -5,7 +5,7 @@ import { PlusCircle } from '@phosphor-icons/react';
 function Header() {
   return (
     <div className={styles.headerContainer}>
-      <header>
+      <header className={styles.header}>
         <img src={logo} alt="" />
         <form className={styles.newTaskContainer}>
           <input type="text" name="" id="" placeholder="Adicione uma nova tarefa" />
