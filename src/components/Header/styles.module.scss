@@ -40,6 +40,11 @@ header {
 
     flex-grow: 1;
     padding-inline: 1rem;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 1px 1px var(--purple-dark);
+    }
   }
 
   & button {
@@ -47,11 +52,16 @@ header {
     align-items: center;
     font-size: 0.875rem;
     font-weight: bold;
-    padding-inline: 0.875rem;
+    padding-inline: 1.25rem;
     border-radius: 8px;
     background-color: var(--blue-dark);
     border: none;
 
     gap: 8px;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: var(--blue);
+    }
   }
 }
