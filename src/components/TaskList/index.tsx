@@ -1,3 +1,4 @@
+import { Task } from '../Task';
 import styles from './styles.module.scss';
 
 export function TaskList() {
@@ -11,6 +12,9 @@ export function TaskList() {
           Concluídas <span>2 de 5</span>
         </p>
       </header>
+      <main className={styles.main}>
+        <Task />
+      </main>
     </div>
   );
 }
