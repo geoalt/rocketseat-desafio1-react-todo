@@ -10,7 +10,7 @@ export function Task() {
         Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames
         integer.
       </label>
-      <button>
+      <button className={styles.trash}>
         <Trash size={20} />
       </button>
     </div>
