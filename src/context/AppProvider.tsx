@@ -2,7 +2,7 @@ import React, { ReactNode, createContext, useMemo, useState } from 'react';
 
 interface ITask {
   id: string;
-  content: string;
+  task: string;
   isComplete: boolean;
 }
 
