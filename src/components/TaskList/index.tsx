@@ -7,7 +7,7 @@ import { ClipboardText } from '@phosphor-icons/react';
 export function TaskList() {
   const context = useContext(AppContext);
 
-  function handleClick(id: string, status: boolean) {
+  function handleChange(id: string, status: boolean) {
     const updatedTasks = context.task.reduce((acc: ITask[], t) => {
       if (t.id === id) {
         return [...acc, { ...t, isCompleted: !status }];
@@ -40,7 +40,9 @@ export function TaskList() {
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
-          context.task.map((task) => <Task key={task.id} values={task} handleClick={handleClick} />)
+          context.task.map((task) => (
+            <Task key={task.id} values={task} handleChange={handleChange} />
+          ))
         )}
       </main>
     </div>
