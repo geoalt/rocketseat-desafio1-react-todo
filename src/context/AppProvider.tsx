@@ -1,9 +1,9 @@
 import React, { ReactNode, createContext, useMemo, useState } from 'react';
 
-interface ITask {
+export interface ITask {
   id: string;
   task: string;
-  isComplete: boolean;
+  isCompleted: boolean;
 }
 
 interface IContext {

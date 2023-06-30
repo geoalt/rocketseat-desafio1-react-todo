@@ -16,7 +16,7 @@ function Header() {
     e.preventDefault();
     context.setTask([
       ...context.task,
-      { id: crypto.randomUUID(), task: taskContent, isComplete: false },
+      { id: crypto.randomUUID(), task: taskContent, isCompleted: false },
     ]);
 
     setTaskContent('');
@@ -35,11 +35,7 @@ function Header() {
             placeholder="Adicione uma nova tarefa"
             onChange={(e) => handleChange(e)}
           />
-          <button
-            type="submit"
-            disabled={taskContent === '' ? false : true}
-            onClick={(e) => handleClick(e)}
-          >
+          <button type="submit" disabled={!taskContent} onClick={(e) => handleClick(e)}>
             Criar <PlusCircle size={22} />
           </button>
         </form>

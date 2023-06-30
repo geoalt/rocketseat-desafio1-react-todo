@@ -1,14 +1,27 @@
 import { Trash } from '@phosphor-icons/react';
 import styles from './styles.module.scss';
+import { ITask } from '../../context/AppProvider';
 
-export function Task() {
+interface IProps {
+  values: ITask;
+  handleClick: (id: string, status: boolean) => void;
+}
+
+export function Task(props: IProps) {
+  const { values, handleClick } = props;
+
   return (
     <div className={styles.taskContainer}>
-      <label htmlFor="task" className={styles.task}>
-        <input type="checkbox" name="" id="task" />
+      <label htmlFor={values.id} className={styles.task}>
+        <input
+          type="checkbox"
+          name={values.id}
+          id={values.id}
+          checked={values.isCompleted}
+          onChange={() => handleClick(values.id, values.isCompleted)}
+        />
         <div className={styles.checkbox}></div>
-        Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames
-        integer.
+        {values.task}
       </label>
       <button className={styles.trash}>
         <Trash size={20} />
