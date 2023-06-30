@@ -5,10 +5,11 @@ import { ITask } from '../../context/AppProvider';
 interface IProps {
   values: ITask;
   handleChange: (id: string, status: boolean) => void;
+  handleClick: (id: string) => void;
 }
 
 export function Task(props: IProps) {
-  const { values, handleChange } = props;
+  const { values, handleChange, handleClick } = props;
 
   return (
     <div className={styles.taskContainer}>
@@ -23,7 +24,7 @@ export function Task(props: IProps) {
         <div className={styles.checkbox}></div>
         {values.task}
       </label>
-      <button className={styles.trash}>
+      <button className={styles.trash} onClick={() => handleClick(values.id)}>
         <Trash size={20} />
       </button>
     </div>

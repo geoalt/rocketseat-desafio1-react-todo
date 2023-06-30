@@ -19,6 +19,11 @@ export function TaskList() {
     context.setTask(updatedTasks);
   }
 
+  function handleClick(id: string) {
+    const updatedTasks = context.task.filter((t) => t.id !== id);
+    context.setTask(updatedTasks);
+  }
+
   const tasksCreated = context.task.length;
   const tasksDone = context.task.filter((t) => t.isCompleted === true).length;
 
@@ -41,7 +46,12 @@ export function TaskList() {
           </div>
         ) : (
           context.task.map((task) => (
-            <Task key={task.id} values={task} handleChange={handleChange} />
+            <Task
+              key={task.id}
+              values={task}
+              handleChange={handleChange}
+              handleClick={handleClick}
+            />
           ))
         )}
       </main>
