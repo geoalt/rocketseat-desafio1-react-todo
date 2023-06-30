@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Task } from '../Task';
 import styles from './styles.module.scss';
 import { AppContext, ITask } from '../../context/AppProvider';
+import { ClipboardText } from '@phosphor-icons/react';
 
 export function TaskList() {
   const context = useContext(AppContext);
@@ -18,20 +19,29 @@ export function TaskList() {
     context.setTask(updatedTasks);
   }
 
+  const tasksCreated = context.task.length;
+  const tasksDone = context.task.filter((t) => t.isCompleted === true).length;
+
   return (
     <div className={styles.taskListContainer}>
       <header className={styles.header}>
         <p>
-          Tarefas criadas <span>5</span>
+          Tarefas criadas <span>{tasksCreated}</span>
         </p>
         <p>
-          Concluídas <span>2 de 5</span>
+          Concluídas <span>{`${tasksDone} de ${tasksCreated}`}</span>
         </p>
       </header>
       <main className={styles.main}>
-        {context.task.map((task) => (
-          <Task key={task.id} values={task} handleClick={handleClick} />
-        ))}
+        {context.task.length === 0 ? (
+          <div className={styles.noTaskMessage}>
+            <ClipboardText size={32} weight="bold" />
+            <p>Você ainda não tem tarefas cadastradas. </p>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </div>
+        ) : (
+          context.task.map((task) => <Task key={task.id} values={task} handleClick={handleClick} />)
+        )}
       </main>
     </div>
   );
