@@ -37,3 +37,19 @@
 
   margin-top: 24px;
 }
+
+.messageContainer {
+  text-align: center;
+  color: var(--gray-300);
+  padding-block: 4rem;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+
+  & p:nth-of-type(1) {
+    margin-top: 0.625rem;
+  }
+}
+
+.messageIcon {
+  color: var(--gray-400);
+}

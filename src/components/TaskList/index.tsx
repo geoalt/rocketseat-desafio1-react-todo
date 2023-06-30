@@ -39,9 +39,11 @@ export function TaskList() {
       </header>
       <main className={styles.main}>
         {context.task.length === 0 ? (
-          <div className={styles.noTaskMessage}>
-            <ClipboardText size={32} weight="bold" />
-            <p>Você ainda não tem tarefas cadastradas. </p>
+          <div className={styles.messageContainer}>
+            <ClipboardText size={65} weight="light" className={styles.messageIcon} />
+            <p>
+              <strong>Você ainda não tem tarefas cadastradas.</strong>
+            </p>
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
